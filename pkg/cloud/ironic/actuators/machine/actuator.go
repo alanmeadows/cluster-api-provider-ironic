@@ -26,7 +26,7 @@ import (
 )
 
 const (
-	ProviderName = "solas"
+	ProviderName = "ironic"
 )
 
 // Actuator is responsible for performing machine reconciliation
