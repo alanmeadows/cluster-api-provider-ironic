@@ -17,38 +17,38 @@ limitations under the License.
 package cluster
 
 import (
-        "fmt"
-        "log"
+	"fmt"
+	"log"
 
-        clusterv1 "sigs.k8s.io/cluster-api/pkg/apis/cluster/v1alpha1"
-        client "sigs.k8s.io/cluster-api/pkg/client/clientset_generated/clientset/typed/cluster/v1alpha1"
+	clusterv1 "sigs.k8s.io/cluster-api/pkg/apis/cluster/v1alpha1"
+	client "sigs.k8s.io/cluster-api/pkg/client/clientset_generated/clientset/typed/cluster/v1alpha1"
 )
 
 // Actuator is responsible for performing cluster reconciliation
 type Actuator struct {
-        clustersGetter client.ClustersGetter
+	clustersGetter client.ClustersGetter
 }
 
 // ActuatorParams holds parameter information for Actuator
 type ActuatorParams struct {
-        ClustersGetter client.ClustersGetter
+	ClustersGetter client.ClustersGetter
 }
 
 // NewActuator creates a new Actuator
 func NewActuator(params ActuatorParams) (*Actuator, error) {
-        return &Actuator{
-                clustersGetter: params.ClustersGetter,
-        }, nil
+	return &Actuator{
+		clustersGetter: params.ClustersGetter,
+	}, nil
 }
 
 // Reconcile reconciles a cluster and is invoked by the Cluster Controller
 func (a *Actuator) Reconcile(cluster *clusterv1.Cluster) error {
-        log.Printf("Reconciling cluster %v.", cluster.Name)
-        return fmt.Errorf("TODO: Not yet implemented")
+	log.Printf("Reconciling cluster %v.", cluster.Name)
+	return fmt.Errorf("TODO: Not yet implemented")
 }
 
 // Delete deletes a cluster and is invoked by the Cluster Controller
 func (a *Actuator) Delete(cluster *clusterv1.Cluster) error {
-        log.Printf("Deleting cluster %v.", cluster.Name)
-        return fmt.Errorf("TODO: Not yet implemented")
+	log.Printf("Deleting cluster %v.", cluster.Name)
+	return fmt.Errorf("TODO: Not yet implemented")
 }

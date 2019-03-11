@@ -17,19 +17,15 @@ limitations under the License.
 package controller
 
 import (
-	"github.com/alanmeadows/cluster-api-provider-ironic/pkg/cloud/ironic/actuators/cluster"
-	capicluster "sigs.k8s.io/cluster-api/pkg/controller/cluster"
+	"github.com/alanmeadows/cluster-api-provider-ironic/pkg/cloud/ironic/actuators/machine"
+	capimachine "sigs.k8s.io/cluster-api/pkg/controller/machine"
 	"sigs.k8s.io/controller-runtime/pkg/manager"
 )
 
-//+kubebuilder:rbac:groups=solas.k8s.io,resources=solasclusterproviderspecs;solasclusterproviderstatuses,verbs=get;list;watch;create;update;patch;delete
+//+kubebuilder:rbac:groups=solas.k8s.io,resources=solasmachineproviderspecs;solasmachineproviderstatuses,verbs=get;list;watch;create;update;patch;delete
 func init() {
 	// AddToManagerFuncs is a list of functions to create controllers and add them to a manager.
 	AddToManagerFuncs = append(AddToManagerFuncs, func(m manager.Manager) error {
-		actuator, err := cluster.NewActuator(cluster.ActuatorParams{})
-		if err != nil {
-			return err
-		}
-		return capicluster.AddWithActuator(m, actuator)
+		return capimachine.AddWithActuator(m, &machine.Actuator{})
 	})
 }
