@@ -1,7 +1,7 @@
-# Kubernetes cluster-api-provider-ssh Project
+# Kubernetes cluster-api-provider-ironic Project
 
-This repository hosts an implementation of a provider using Ironic for the
-[cluster-api project](https://sigs.k8s.io/cluster-api).
+This repository hosts an implementation of a provider using [Ironic](https://github.com/openstack/ironic) for the
+[cluster-api project](https://sigs.k8s.io/cluster-api) to provide a baremetal solution for the cluster-api.
 
 This project is under heavy development.
 
