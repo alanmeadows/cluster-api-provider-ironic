@@ -1,3 +1,6 @@
+# Build artifacts
+provider-components.yaml
+cover.out
 
 # Binaries for programs and plugins
 *.exe
