@@ -13,9 +13,17 @@ This project is under heavy development.
 go get github.com/alanmeadows/cluster-api-provider-ironic
 cd $GOPATH/src/alanmeadows/cluster-api-provider-ironic
 ```
+
+## Dependencies/Requirements
+
+- [Kustomize](https://github.com/kubernetes-sigs/kustomize)
+- [Go Dep](https://github.com/golang/dep)
+
 ## Generating cluster, machine, and provider-components files
 
 ```bash
+PATH=$PATH:$(go env GOPATH)/bin
+dep ensure
 make
 ```
 
